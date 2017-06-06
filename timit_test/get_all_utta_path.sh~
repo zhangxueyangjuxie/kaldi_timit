@@ -1,0 +1,32 @@
+#!/bin/bash
+#descript : get dataset base information
+#author : xueyang
+#data : 2017-05-08
+
+:<<!
+cd ..
+if [ -d "/data" ]; then
+	mkdir /data
+fi
+cd ./data
+touch all_utta_path
+cd ../script
+!
+
+function get_wav()
+{
+	for element in 'ls $1'
+	do
+		echo element
+		dir_or_file=$1"/"$element
+		if [ -d $dir_or_file ]; then
+			get_wav $dir_or_file
+		else
+			echo dir_or_file
+			if [ "${dir_or_file##*.}"x = "wav"x ]; then
+				echo $dir_or_file >> all_utta_path
+			fi
+		fi
+	done	
+}
+get_wav

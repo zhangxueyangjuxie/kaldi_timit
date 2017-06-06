@@ -1,0 +1,6 @@
+#!/bin/bash
+#describe : speaker recognitino for TIMIT
+#author : xueyang
+#date : 2017-05-08
+
+sh ./script/get_all_utta_path.sh TIMIT
